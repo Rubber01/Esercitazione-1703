@@ -167,6 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 275700416}
+  - component: {fileID: 275700418}
   m_Layer: 0
   m_Name: CubeParent
   m_TagString: Untagged
@@ -183,12 +184,28 @@ Transform:
   m_GameObject: {fileID: 275700415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14479.888}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &275700418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275700415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27953676931f663498e6b7f160f11764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cube: {fileID: 1484328571122587790, guid: ffc2253ff8d11f54ead9a2c4e44f944a, type: 3}
+  initCubePosition: 299600
+  initValue: 300
+  parent: {fileID: 275700416}
 --- !u!1 &297319379
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +339,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297319379}
   m_CullTransparentMesh: 1
+--- !u!1 &358578377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358578379}
+  - component: {fileID: 358578378}
+  - component: {fileID: 358578380}
+  m_Layer: 0
+  m_Name: FloatingOriginManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &358578378
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358578377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &358578379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358578377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &358578380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358578377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719d10b09567b3849b9db29da0ca2500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPersistant: 0
+  col: {fileID: 358578378}
+  camMovement: {fileID: 963194229}
 --- !u!1 &488111249
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +971,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -979,13 +1066,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6197fb0a7c140bc47b904add209addcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 2000
   speed: 1
   distance: 0
-  cube: {fileID: 1484328571122587790, guid: ffc2253ff8d11f54ead9a2c4e44f944a, type: 3}
-  initCubePosition: 299600
-  initValue: 300
-  parent: {fileID: 275700416}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c9ab6b0ef5b354e840790e8e7baf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &973930302
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,3 +2197,4 @@ SceneRoots:
   - {fileID: 2117451221}
   - {fileID: 594871928}
   - {fileID: 275700416}
+  - {fileID: 358578379}
