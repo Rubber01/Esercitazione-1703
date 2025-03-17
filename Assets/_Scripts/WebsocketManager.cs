@@ -1,5 +1,6 @@
 using NativeWebSocket;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class WebsocketManager : Singleton<WebsocketManager>
@@ -12,18 +13,33 @@ public class WebsocketManager : Singleton<WebsocketManager>
     internal Action<string> onMessageReceived;
 
     // Start is called before the first frame update
-    void Start()
+    async void Start()
     {
-        StartConnection();
+        await StartConnection();
     }
 
-    async void StartConnection()
+    private void Update()
+    {
+#if UNITY_EDITOR
+        ws.DispatchMessageQueue();
+#endif
+    }
+
+    async Task StartConnection()
     {
         ws = new WebSocket(url);
 
         ws.OnOpen += () =>
         {
             Debug.Log("Connection open!");
+        };
+
+        ws.OnMessage += (bytes) =>
+        {
+            Debug.Log("Message Received");
+            var msg = System.Text.Encoding.UTF8.GetString(bytes);
+            Debug.Log($"Received: {msg}");
+            OnMessageReceived(msg);
         };
 
         ws.OnError += (e) =>
@@ -34,14 +50,6 @@ public class WebsocketManager : Singleton<WebsocketManager>
         ws.OnClose += (e) =>
         {
             Debug.Log("Connection closed");
-        };
-
-        ws.OnMessage += (bytes) =>
-        {
-            Debug.Log("Message Received");
-            var msg = System.Text.Encoding.UTF8.GetString(bytes);
-            Debug.Log($"Received: {msg}");
-            OnMessageReceived(msg);
         };
 
         await ws.Connect();

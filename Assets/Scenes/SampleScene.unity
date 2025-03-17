@@ -158,6 +158,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &275700415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275700416}
+  m_Layer: 0
+  m_Name: CubeParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &275700416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275700415}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 14479.888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297319379
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +982,10 @@ MonoBehaviour:
   maxDistance: 2000
   speed: 1
   distance: 0
+  cube: {fileID: 1484328571122587790, guid: ffc2253ff8d11f54ead9a2c4e44f944a, type: 3}
+  initCubePosition: 299600
+  initValue: 300
+  parent: {fileID: 275700416}
 --- !u!1 &973930302
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,3 +2102,4 @@ SceneRoots:
   - {fileID: 582957263}
   - {fileID: 2117451221}
   - {fileID: 594871928}
+  - {fileID: 275700416}
