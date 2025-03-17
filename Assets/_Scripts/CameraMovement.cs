@@ -13,7 +13,12 @@ public class CameraMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        distance=Vector3.Distance(this.transform.position, startPosition);
+        
+        distance=Vector3.Distance(new Vector3(this.transform.position.x, this.transform.position.y, distance), startPosition);
         transform.position += Vector3.forward * speed * Time.deltaTime;
+    }
+    public void changeDistance(int changeDistance)
+    {
+        distance = changeDistance;
     }
 }

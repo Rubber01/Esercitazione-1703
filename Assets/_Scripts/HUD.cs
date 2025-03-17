@@ -5,12 +5,16 @@ using TMPro;
 public class HUD : MonoBehaviour
 {
     public TMP_Text speed;
-    CameraMovement cameraMovement;
+    public CameraMovement cameraMovement;
     public TMP_Text distance;
-
+    public TMP_InputField changeSpeed;
     private void FixedUpdate()
     {
         speed.text=cameraMovement.speed.ToString();
         distance.text = cameraMovement.distance.ToString();
+    }
+    public void CallChangeDistance()
+    {
+        cameraMovement.changeDistance(int.Parse(changeSpeed.text));
     }
 }
