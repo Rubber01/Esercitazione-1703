@@ -10,11 +10,17 @@ public class HUD : MonoBehaviour
     public TMP_InputField changeSpeed;
     private void FixedUpdate()
     {
-        speed.text=cameraMovement.speed.ToString();
+        speed.text = cameraMovement.speed.ToString();
         distance.text = cameraMovement.distance.ToString();
     }
     public void CallChangeDistance()
     {
         cameraMovement.changeDistance(int.Parse(changeSpeed.text));
+    }
+
+    public void ChangeSpeed()
+    {
+        var currentSpeed = cameraMovement.speed;
+        WebsocketManager.Instance.SendRequest(currentSpeed.ToString());
     }
 }
