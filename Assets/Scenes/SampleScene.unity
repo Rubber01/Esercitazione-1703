@@ -681,9 +681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f8b61cd58f7f548bdd2c61b035a7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {fileID: 973930304}
+  speedText: {fileID: 973930304}
   cameraMovement: {fileID: 963194229}
-  distance: {fileID: 1823498128}
+  distanceText: {fileID: 1823498128}
   changeSpeed: {fileID: 1491069296}
 --- !u!1 &594871926
 GameObject:

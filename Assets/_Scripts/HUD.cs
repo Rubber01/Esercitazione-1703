@@ -4,21 +4,21 @@ using UnityEngine;
 using TMPro;
 public class HUD : MonoBehaviour
 {
-    public TMP_Text speed;
-    public CameraMovement cameraMovement;
-    public TMP_Text distance;
-    public TMP_InputField changeSpeed;
+    [SerializeField] private TMP_Text speedText;
+    [SerializeField] private CameraMovement cameraMovement;
+    [SerializeField] private TMP_Text distanceText;
+    [SerializeField] private TMP_InputField changeSpeed;
     private void FixedUpdate()
     {
-        speed.text = cameraMovement.speed.ToString();
-        distance.text = cameraMovement.distance.ToString();
+        speedText.text = cameraMovement.speed.ToString();
+        distanceText.text = cameraMovement.distance.ToString();
     }
     public void CallChangeDistance()
     {
-        cameraMovement.changeDistance(int.Parse(changeSpeed.text));
+        cameraMovement.ChangeDistance(int.Parse(changeSpeed.text));
     }
 
-    public void ChangeSpeed()
+    public void ChangeSpeedInput()
     {
         var currentSpeed = cameraMovement.speed;
         WebsocketManager.Instance.SendRequest(currentSpeed.ToString());

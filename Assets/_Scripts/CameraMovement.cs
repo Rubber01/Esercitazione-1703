@@ -12,7 +12,14 @@ public class CameraMovement : MonoBehaviour
     private void Awake()
     {
         this.transform.position = startPosition;
-        WebsocketManager.Instance.onMessageReceived += ChangeSpeed;
+        if (WebsocketManager.Instance != null)
+        {
+            WebsocketManager.Instance.onMessageReceived += ChangeSpeed;
+        }
+        else
+        {
+            Debug.LogWarning("WebsocketManager.Instance non è disponibile.");
+        }
     }
 
     private void OnDestroy()
@@ -33,7 +40,7 @@ public class CameraMovement : MonoBehaviour
         distance += 1 * speed * Time.deltaTime;
     }
 
-    public void changeDistance(int changeDistance)
+    public void ChangeDistance(int changeDistance)
     {
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, changeDistance);
         distance = changeDistance;
